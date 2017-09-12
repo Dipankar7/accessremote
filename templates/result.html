@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+   <body>
+   {% if result['data'] %}
+      <h2>Root Users</h2>
+      <table border = 1>
+         {% for key in result['root_users'] %}
+         
+            <tr>
+               <th> {{ key }} </th>
+            </tr>
+            
+         {% endfor %}
+      </table>
+
+
+      <h2>Interactive Shells</h2>
+      <table border = 1>
+      {% for key, value in result['interactive_shells'].iteritems() %}
+         
+            <tr>
+               <th> {{ key }} </th>
+               <td> {{ value }} </td>
+            </tr>
+            
+         {% endfor %}
+      </table>
+   {% else %}
+   <h2>Error occured----</h2>
+   <p>{{ result['error'] }}</p>
+   {% endif %}   
+   </body>
+</html>
